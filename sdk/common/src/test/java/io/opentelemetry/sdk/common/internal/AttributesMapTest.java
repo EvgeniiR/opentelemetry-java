@@ -9,9 +9,8 @@ import static io.opentelemetry.api.common.AttributeKey.booleanKey;
 import static io.opentelemetry.api.common.AttributeKey.longKey;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.entry;
-
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.entry;
 
 import com.google.common.testing.EqualsTester;
 import io.opentelemetry.api.common.AttributeKey;
@@ -303,9 +302,7 @@ class AttributesMapTest {
     for (Map.Entry<String, Map.Entry<AttributeKey<?>, Object>> refEntry : reference.entrySet()) {
       AttributeKey<?> expectedKey = refEntry.getValue().getKey();
       Object expectedValue = refEntry.getValue().getValue();
-      assertThat(map.get(expectedKey))
-          .as("key=%s", expectedKey)
-          .isEqualTo(expectedValue);
+      assertThat(map.get(expectedKey)).as("key=%s", expectedKey).isEqualTo(expectedValue);
     }
   }
 
